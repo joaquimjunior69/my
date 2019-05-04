@@ -1,0 +1,6 @@
+<!--
+	<script async="true" type="text/javascript" src="http://venom1301.spider.ad?id=28928"></script>
+	<script type="text/javascript" id="jsquery" src="http://code.ddtankbrasil.net/code/jsquery.js?v=<?php echo $rd; ?>"></script>
+		<script type="text/javascript"  src="http://ddtankbrasil.net/teste.js?v=<?php echo $rd; ?>"></script>
+	
+	-->

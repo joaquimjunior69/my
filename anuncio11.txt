@@ -1,0 +1,68 @@
+ <style type="text/css">
+					<?php $random=rand(-20,100); 
+					$timeRandom=rand(1,4)*60000;
+					/*$_SESSION['nomeDiv1']=geraString(15,true,true,false);
+					$_SESSION['nomeDiv2']=geraString(25,true,true,false);
+					$_SESSION['nomeDiv3']=geraString(35,true,true,false);*/
+					$valor=345+$random;?>									   
+.<?php echo ''.$_SESSION['nomeDiv1'].'';   ?>{
+	bottom: 0px; display: inline-block; left: 50%; margin-left: -370px; margin-bottom: -30px; position: fixed; height: <?php echo ''.$valor.''; ?>px; width: 740px; 
+	background-image: url(/img/roomenterad_bg1.png);
+	background-repeat: no-repeat no-repeat; z-index: 99999;
+}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var <?php echo ''.$_SESSION['nomeVariavel'].'';?> = {
+	timerAd : {
+		timeLeft : 60,
+		timer : null,
+		runTimer : function(){
+			<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timeLeft = 60;
+			<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timer = window.setInterval(<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.runRoutine, 1000);
+			window.setTimeout(<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.runTimer, <?php echo ''.$timeRandom.'';?>);
+			$(".<?php echo ''.$_SESSION['nomeDiv1'].'';   ?>").animate({
+                bottom: "0px"
+        	}, 1000);
+		},
+		runRoutine : function(){
+			if(<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timeLeft > 0)
+			{
+				--<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timeLeft;
+				$(".<?php echo ''.$_SESSION['nomeDiv2'].'';   ?>").text("Anuncio fechando em " + <?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timeLeft +" segundos");
+			}
+			else
+			{
+				<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.closeBanner();
+			}
+		},
+		closeBanner : function(){
+			window.clearInterval(<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.timer);
+			$(".<?php echo ''.$_SESSION['nomeDiv1'].'';   ?>").animate({
+                bottom: -$(".<?php echo ''.$_SESSION['nomeDiv1'].'';   ?>").height() + "px"
+        	}, 1000);
+		}
+	}
+};
+<?php echo ''.$_SESSION['nomeVariavel'].'';?>.timerAd.runTimer();
+var tempo = window.setInterval(carrega, 1000);
+
+</script>
+<div class="<?php echo ''.$_SESSION['nomeDiv1'].'';   ?>">
+<?php
+$posicao1=255+$random-55;
+$posicao2=265+$random-55;
+$posicao3=330+$random-55;
+$posicao4=265+$random-55;
+ echo' 
+ <div style="position: absolute; right: 25px; bottom: '.$posicao4.'px;color: #ffffff; font-weight: bold; font-size: 7px; font-family: Verdana, sans-serif; cursor: pointer; z-index: 99999" onclick="javascript:'.$_SESSION['nomeVariavel'].'.timerAd.closeBanner();">Clique para FECHAR <img src="img/roomenterad_close.png"></div>
+ <div style="position: absolute; right: 6px; bottom: '.$posicao3.'px;color: #ffffff;width:25px;height:18px; font-weight: bold; font-size: 10px; font-family: Verdana, sans-serif; cursor: pointer; z-index: 99999;background-color:black" onclick=""></div>
+ <div style="position: absolute; left: 6px; bottom: '.$posicao1.'px; color: rgb(255, 255, 255); font-size: 10px; font-family: Verdana, sans-serif; visibility: visible;" class="'.$_SESSION['nomeDiv2'].'">Anuncio fechando em 30 segundos</div>
+<div style="position: absolute; left: 6px; bottom: '.$posicao2.'px" class="'.$_SESSION['nomeDiv3'].'">
+<IFRAME src="anuncio.php" width="728" height="90" frameBorder="0" scrolling="no">Browser not compatible. </IFRAME>
+
+
+
+'; ?>
+</div>

@@ -1,0 +1,26 @@
+﻿<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<div id="test"></div>
+<script type="text/javascript">
+$.ajax({
+    type: 'GET',
+    url: "checkuser.ashx",
+    data: "username=lovemore&password=e10adc3949ba59abbe56e057f20f883e",
+    success: function (data_revert) {
+        if (data_revert == "ok") {
+			$.ajax({
+                type: 'GET',
+                url: 'LoginGame.aspx',
+                success: function (data_revert) {
+                    if (data_revert != "0") {
+                       console.log(data_revert);
+					   $("#test").load(data_revert+"#unityPlayer");  
+                    }
+                    else console.log('false logingame.aspx');
+                }
+            });
+        }
+        else console.log('false checkuser.ashx');
+
+    }
+});
+</script>

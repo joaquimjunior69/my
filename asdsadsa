@@ -1,0 +1,13 @@
+<script type="text/javascript">
+ $(document).ready(function() {
+ 	setInterval(function(){
+ 		$.ajax({
+ 			url: "test.html",
+ 			success: function(data){
+ 				if(data != 1) window.location="login.php";
+ 			},
+ 			cache: false
+ 		});
+ 	}, 5000);
+});
+</script>

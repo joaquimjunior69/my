@@ -1,0 +1,9 @@
+Disallow: /bin/
+Disallow: /br/
+Disallow: /tool/
+Disallow: /module/
+Disallow: /xml/
+
+
+Disallow: /eyeblaster
+Disallow: /addineyeV2.html 

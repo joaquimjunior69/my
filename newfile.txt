@@ -1,0 +1,1 @@
+SELECT TemplateID, Price,MaxCount, NeedSex, CategoryID, Pic, Name FROM Db_Tank.dbo.Shop_Goods where name like '%poção%' Order by TemplateID offset 0 rows FETCH NEXT 50 ROWS ONLY
